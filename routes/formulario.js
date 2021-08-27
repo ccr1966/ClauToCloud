@@ -7,7 +7,6 @@ router.use(express.urlencoded({ extended: false }));
 
 //GET users listing.
 router.get('/', function(req, res, next) {
-
   res.render('formulario',{usuario:req.session.usuario,id_usuario:req.session.id_usuario});
 });
 
