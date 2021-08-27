@@ -21,7 +21,6 @@ base= heroku_5f8e883e779f0b7
     host     : 'us-cdbr-east-04.cleardb.com',
     user     : 'b80fba2a620d8d',
     password : '14284f40',
-    port : 3306,
     database : 'heroku_5f8e883e779f0b7'
   });
 
