@@ -22,6 +22,7 @@ var transporter = nodemailer.createTransport({
  // }
 })
 
+
 router.post('/enviar',  function(req, res, next) {
   
      var v_nombre = req.body.nombre;
