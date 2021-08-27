@@ -20,7 +20,7 @@ var transporter = nodemailer.createTransport({
     //tls: {
       //rejectUnauthorized: false
  // }
-})
+});
 
 
 router.post('/enviar',  function(req, res, next) {
