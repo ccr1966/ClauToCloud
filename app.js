@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var app = express();
 
-const session = require('express-session');
+const session = require('cookie-session');
 
 var handlebars = require('express-handlebars');    
 
