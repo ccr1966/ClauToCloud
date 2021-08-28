@@ -23,7 +23,8 @@ var cliente = mysql.createConnection({
     host     : 'us-cdbr-east-04.cleardb.com',
     user     : 'b80fba2a620d8d',
     password : '14284f40',
-    database : 'heroku_5f8e883e779f0b7'
+    database : 'heroku_5f8e883e779f0b7',
+    port: '8889'
   });
 
 /* codigo de web para cortar el error de heroku*/
