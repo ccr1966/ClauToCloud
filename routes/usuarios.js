@@ -5,7 +5,7 @@ var bd=require('./bd');
 
 //var bodyParser = require('body-parser');
 router.use(express.urlencoded({ extended: false }));
-
+  
 // GET users listing. 
 router.get('/salir', function(req, res, next) {
   req.session = null; 
