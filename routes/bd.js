@@ -26,7 +26,7 @@ var cliente = mysql.createConnection({
     database : 'heroku_5f8e883e779f0b7'
   });
 
-/* codigo de web para cortar el error de heroku
+/* codigo de web para cortar el error de heroku*/
 var connection;
 function handleDisconnect() {
   connection = mysql.createConnection(cliente); // Recreate the connection, since
@@ -50,7 +50,7 @@ function handleDisconnect() {
 }
 
 handleDisconnect();
-*/
+
 
 
 //fin codigo para HEROKU ********************************************************************/
