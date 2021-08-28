@@ -8,7 +8,8 @@ router.use(express.urlencoded({ extended: false }));
 
 // GET users listing. 
 router.get('/salir', function(req, res, next) {
-  req.session.destroy();
+  req.session = null; 
+  // no funciona en heroku req.session.destroy();
   res.redirect('/');
 });
 
