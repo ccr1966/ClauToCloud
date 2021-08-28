@@ -9,15 +9,16 @@ var cliente = mysql.createConnection({
     port : 3306,
     database : 'basefinalwm'
  });
-  */
+*/
  /*para HEROKU
-  mysql://b80fba2a620d8d:14284f40@us-cdbr-east-04.cleardb.com/heroku_5f8e883e779f0b7?reconnect=true
-Usuario:b80fba2a620d8d
-pass: 14284f40
-host=us-cdbr-east-04.cleardb.com
-base= heroku_5f8e883e779f0b7
- para levantar en heroku */
- var cliente = mysql.createConnection({
+ 
+ mysql://b80fba2a620d8d:14284f40@us-cdbr-east-04.cleardb.com/heroku_5f8e883e779f0b7?reconnect=true
+          Usuario:b80fba2a620d8d
+          pass: 14284f40
+          host=us-cdbr-east-04.cleardb.com
+          base= heroku_5f8e883e779f0b7
+ */
+var cliente = mysql.createConnection({
     host     : 'us-cdbr-east-04.cleardb.com',
     user     : 'b80fba2a620d8d',
     password : '14284f40',
@@ -25,7 +26,6 @@ base= heroku_5f8e883e779f0b7
   });
 
 // codigo de web para cortar el error de heroku
-
 var connection;
 
 function handleDisconnect() {
@@ -50,10 +50,7 @@ function handleDisconnect() {
 }
 
 handleDisconnect();
-
-/// fin codigo web para cortar error de heroku
-
-
+//fin codigo para HEROKU ********************************************************************/
 
   cliente.query("CREATE TABLE IF NOT EXISTS usuarios (`id_usuario` int(100) NOT NULL AUTO_INCREMENT,`usuario` varchar(20) NOT NULL,      `clave` varchar(20) NOT NULL,`nombre` varchar(50) NOT NULL,      `apellido` varchar(50) NOT NULL,  PRIMARY KEY (`id_usuario`), UNIQUE(`usuario`)    ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ", function (err, result) {  
     if (err) throw err;  

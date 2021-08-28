@@ -55,7 +55,7 @@ router.post('/alta',  function(req, res, next) {
       });    //query insert
 
 //consulta 1 son todos y consulta, solo los del usuario.
-     consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <>" + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
+     consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
      consulta = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario =" + req.session.id_usuario + " ORDER BY items.fecha_item DESC"
 
       console.log(consulta);
@@ -195,7 +195,7 @@ router.post('/confirmarModificacion',  function(req, res, next) {
     }
     else{
         console.log('en CONFIRMAR MODIFICACION va a hacer select de comentarios')
-        consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.id_usuario, usuarios.usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "ORDER BY fecha_item DESC";
+        consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.id_usuario, usuarios.usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + " ORDER BY fecha_item DESC";
         consulta = "select items.desc_item, items.id_item, items.fecha_item, usuarios.id_usuario, usuarios.usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario= "+req.session.id_usuario+" ORDER BY items.fecha_item DESC";
           console.log(consulta);
       
@@ -260,7 +260,7 @@ router.get('/baja/:id_item/:id_usuario',  function(req, res, next) {
           
 
           console.log('en BAJA va a hacer select de comentarios')
-          consulta1 = "select  items.desc_item,items.id_item, items.fecha_item, usuarios.id_usuario, usuarios.usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <>" + req.session.id_usuario +" ORDER BY items.fecha_item DESC";
+          consulta1 = "select  items.desc_item,items.id_item, items.fecha_item, usuarios.id_usuario, usuarios.usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario +" ORDER BY items.fecha_item DESC";
           consulta = "select items.desc_item, items.id_item, items.fecha_item, usuarios.id_usuario, usuarios.usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario= "+req.session.id_usuario+" ORDER BY items.fecha_item DESC";
 
         
