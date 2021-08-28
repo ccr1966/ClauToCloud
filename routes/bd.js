@@ -26,7 +26,7 @@ var cliente = mysql.createConnection({
     database : 'heroku_5f8e883e779f0b7'
   });
 
-// codigo de web para cortar el error de heroku
+/* codigo de web para cortar el error de heroku
 var connection;
 function handleDisconnect() {
   connection = mysql.createConnection(cliente); // Recreate the connection, since
@@ -50,6 +50,9 @@ function handleDisconnect() {
 }
 
 handleDisconnect();
+*/
+
+
 //fin codigo para HEROKU ********************************************************************/
 
   cliente.query("CREATE TABLE IF NOT EXISTS usuarios (`id_usuario` int(100) NOT NULL AUTO_INCREMENT,`usuario` varchar(20) NOT NULL,      `clave` varchar(20) NOT NULL,`nombre` varchar(50) NOT NULL,      `apellido` varchar(50) NOT NULL,  PRIMARY KEY (`id_usuario`), UNIQUE(`usuario`)    ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ", function (err, result) {  
