@@ -18,6 +18,7 @@ var cliente = mysql.createConnection({
           host=us-cdbr-east-04.cleardb.com
           base= heroku_5f8e883e779f0b7
  */
+
 var cliente = mysql.createConnection({
     host     : 'us-cdbr-east-04.cleardb.com',
     user     : 'b80fba2a620d8d',
