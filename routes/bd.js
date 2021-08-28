@@ -28,7 +28,6 @@ var cliente = mysql.createConnection({
 
 // codigo de web para cortar el error de heroku
 var connection;
-
 function handleDisconnect() {
   connection = mysql.createConnection(cliente); // Recreate the connection, since
                                                   // the old one cannot be reused.
