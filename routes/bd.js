@@ -23,9 +23,24 @@ var cliente = mysql.createConnection({
     host     : 'us-cdbr-east-04.cleardb.com',
     user     : 'b80fba2a620d8d',
     password : '14284f40',
-    database : 'heroku_5f8e883e779f0b7',
-    port     : '8889'
+    database : 'heroku_5f8e883e779f0b7'
   });
+
+/* heroku sugerido....
+const mysql = require("mysql");
+const dbConfig = require("../config/db.config.js");
+
+var connection = mysql.createPool({
+  host: dbConfig.HOST,
+  user: dbConfig.USER,
+  password: dbConfig.PASSWORD,
+  database: dbConfig.DB
+});
+
+module.exports = connection;
+
+*/
+
 
 /* codigo de web para cortar el error de heroku*/
 var connection;
