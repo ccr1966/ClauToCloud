@@ -49,6 +49,7 @@ router.post('/alta',  function(req, res, next) {
 
       bd.query('insert into items set ?',registro, function (error,resultado){
           if (error){
+              connection.release();
               console.log(error);
               return;
           }
@@ -62,20 +63,24 @@ router.post('/alta',  function(req, res, next) {
     
       bd.query(consulta, function(error,filas){
                 if (error) {            
+                    connection.release();
                     console.log('error en la consulta SELECT de comentarios');
                     return;
                 }
                 if (filas.length>0) {
                     bd.query(consulta1, function(error,filas1){
-                        if (error) {            
+                        if (error) {       
+                            connection.release();     
                             console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                             return;
                         }
                         if (filas1.length>0) {
                             console.log('viene a verComentarios');
+                            connection.release();
                             res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                         }    
                         console.log('viene a verComentarios');
+                        connection.release();
                         res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                     }); //consulta1
                 } filas>0
@@ -101,34 +106,41 @@ router.get('/listadoComentarios/:id_usuario', function(req, res, next) {
 
     bd.query(consulta, function(error,filas){
             if (error) {            
+                connection.release();
                 console.log('error en la consulta SELECT de comentarios' + consulta + ' '+ error);
                 return;
             }
             if (filas.length>0) {
                 bd.query(consulta1, function(error,filas1){
-                    if (error) {            
+                    if (error) {     
+                        connection.release();       
                         console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                         return;
                     }
                     if (filas1.length>0) {
+                        connection.release();
                         console.log('viene a verComentarios');
                         res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                     }    
+                    connection.release();
                     console.log('viene a verComentarios');
                     res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                 });//consulta1
             } 
             else{ //no hay coments del usuario pero puede haber de otros
                 bd.query(consulta1, function(error,filas1){
-                    if (error) {            
+                    if (error) {         
+                        connection.release();   
                         console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                         return;
                     }
                     if (filas1.length>0) {
+                        connection.release();
                         console.log('viene a verComentarios');
                         res.render('verComentarios',{notiene:true, notienen:false,items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                     }else{    
                      // select usuario cuando no quedan items
+                     connection.release();
                         console.log ('va a renderVerComentarios1 con req_params id_usuario= '+req.params.id_usuario);
                         res.render('verComentarios1',{usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                     }
@@ -147,12 +159,15 @@ console.log(consulta);
 
   bd.query(consulta, function(error,filas){
             if (error) {            
+                connection.release();
                 console.log('error en la modificacion');
                 return;
             }
             if (filas.length>0) {
+                connection.release();
                 res.render('modificarItems',{items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
             } else {
+                connection.release();
                 res.render('MensajesAlUsuario',{mensaje:'Sorry, the comment does not exist'});
             }    
         });
@@ -189,6 +204,7 @@ router.post('/confirmarModificacion',  function(req, res, next) {
     bd.query(consulta, function(error,filas){
     console.log('consulta');
     if (error) {            
+        connection.release();
         console.log('error en UPDATE');
         console.log(error);
         return;
@@ -200,20 +216,24 @@ router.post('/confirmarModificacion',  function(req, res, next) {
           console.log(consulta);
       
           bd.query(consulta, function(error,filas){
-                  if (error) {            
+                  if (error) {
+                    connection.release();            
                       console.log('error en CONFIRMAR MODIFICACIONla consulta SELECT de comentarios 2');
                       return;
                   }
                   if (filas.length>0) {
                     bd.query(consulta1, function(error,filas1){
-                        if (error) {            
+                        if (error) {     
+                            connection.release();       
                             console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                             return;
                         }
                         if (filas1.length>0) {
+                            connection.release();
                             console.log('viene a verComentarios');
                             res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                         }    
+                        connection.release();
                         console.log('viene a verComentarios');
                         res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                     }); //consulta1
@@ -221,15 +241,18 @@ router.post('/confirmarModificacion',  function(req, res, next) {
                   else
                   { //no hay coments del usuario pero puede haber de otros
                     bd.query(consulta1, function(error,filas1){
-                        if (error) {            
+                        if (error) {         
+                            connection.release();   
                             console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                             return;
                         }
                         if (filas1.length>0) {
+                            connection.release();
                             console.log('viene a verComentarios');
                             res.render('verComentarios',{notiene:true, notienen:false,items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                         }
                         else{    
+                            connection.release();
                          // select usuario cuando no quedan items
                             console.log ('va a renderVerComentarios1 con req_params id_usuario= '+req.params.id_usuario);
                             res.render('verComentarios1',{usuario:req.session.usuario,id_usuario:req.session.id_usuario});
@@ -268,19 +291,23 @@ router.get('/baja/:id_item/:id_usuario',  function(req, res, next) {
         
             bd.query(consulta, function(error,filas){
                     if (error) {            
+                        connection.release();
                         console.log('error en la consulta SELECT de comentario');
                         return;
                     }
                     if (filas.length>0) {
                         bd.query(consulta1, function(error,filas1){
-                            if (error) {            
+                            if (error) {     
+                                connection.release();       
                                 console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                                 return;
                             }
                             if (filas1.length>0) {
+                                connection.release();
                                 console.log('viene a verComentarios');
                                 res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                             }    
+                            connection.release();
                             console.log('viene a verComentarios');
                             res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                         });//consulta1
@@ -289,14 +316,17 @@ router.get('/baja/:id_item/:id_usuario',  function(req, res, next) {
                         { //no hay coments del usuario pero puede haber de otros
                             bd.query(consulta1, function(error,filas1){
                                 if (error) {            
+                                    connection.release();
                                     console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
                                     return;
                                 }
                                 if (filas1.length>0) {
+                                    connection.release();
                                     console.log('viene a verComentarios');
                                     res.render('verComentarios',{notiene:true, notienen:false,items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                                 }
                                 else{    
+                                    connection.release();
                                  // select usuario cuando no quedan items
                                     console.log ('va a renderVerComentarios1 con req_params id_usuario= '+req.params.id_usuario);
                                     res.render('verComentarios1',{usuario:req.session.usuario,id_usuario:req.session.id_usuario});
