@@ -152,10 +152,9 @@ router.get('/listadoComentarios/:id_usuario', function(req, res, next) {
 
 router.get('/modificar/:id_item/:id_usuario', function(req, res, next) {
   var id_item= req.params.id_item;
-  var id_usuario= req.params.id_usuario;
   
   var consulta  ="select  * from items where id_item =" + id_item;
-console.log(consulta);
+  console.log(consulta);
 
   bd.query(consulta, function(error,filas){
             if (error) {            
@@ -168,7 +167,7 @@ console.log(consulta);
                 res.render('modificarItems',{items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
             } else {
                 
-                res.render('MensajesAlUsuario',{mensaje:'Sorry, the comment does not exist', pagina:'/VerComentarios/'});
+                res.render('MensajesAlUsuario',{mensaje:'Sorry, the comment does not exist', pagina:'/comentarios/listadoComentarios'});
             }    
         });
 });
