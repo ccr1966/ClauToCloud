@@ -168,7 +168,7 @@ console.log(consulta);
                 res.render('modificarItems',{items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
             } else {
                 
-                res.render('MensajesAlUsuario',{mensaje:'Sorry, the comment does not exist'});
+                res.render('MensajesAlUsuario',{mensaje:'Sorry, the comment does not exist', pagina:'/VerComentarios/'});
             }    
         });
 });
