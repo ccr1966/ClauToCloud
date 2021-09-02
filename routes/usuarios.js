@@ -28,7 +28,7 @@ router.post('/chequearLogin',  function(req, res, next) {
   bd.query(consulta, function(error,filas){
             if (error) {            
                 console.log('error en la consulta');
-             res.render('MensajesAlUsuario',{mensaje:'Ops..we have a problem.',pagna:'/index'});
+             res.render('MensajesAlUsuario',{mensaje:'Ops..we have a problem.',pagna:'/'});
 	   return;
             }
             if (filas.length>0) {
@@ -44,7 +44,7 @@ router.post('/chequearLogin',  function(req, res, next) {
             } 
             else {
               console.log('HAY QUE PONER PAGINA DE USUARIO INEXISTENTE');
-                res.render('MensajesAlUsuario',{mensaje:'You aure not a user or you put a incorrect password.',pagina:'/index/'});
+                res.render('MensajesAlUsuario',{mensaje:'You aure not a user or you put a incorrect password.',pagina:'/'});
             }    
         });
 });
