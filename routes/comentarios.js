@@ -56,7 +56,7 @@ router.post('/alta',  function(req, res, next) {
       });    //query insert
 */
 
-var queryinsert = 'insert into items (desc_item, id_usuario,fecha_item) VALUES ("'+ req.body.desc_item + '",' + req.session.id_usuario + ', "'+v_fecha_paraguardar+'") ';
+var queryinsert = 'insert IGNORE into items (desc_item, id_usuario,fecha_item) VALUES ("'+ req.body.desc_item + '",' + req.session.id_usuario + ', "'+v_fecha_paraguardar+'") ';
 
 console.log(queryinsert);
 
