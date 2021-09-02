@@ -60,7 +60,7 @@ var queryinsert = 'insert IGNORE into items (desc_item, id_usuario,fecha_item) V
 
 console.log(queryinsert);
 
-bd.query(queryinsert).then(function (error,resultado){
+bd.query(queryinsert, function (error,resultado){
     if (error){      
         console.log('ERROR en INSERT de Items' + error);
         return;
