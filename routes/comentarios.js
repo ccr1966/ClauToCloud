@@ -65,47 +65,42 @@ bd.query(queryinsert).then(function (error,resultado){
         console.log('ERROR en INSERT de Items' + error);
         return;
     }
-    else
-    {
-//consulta 1 son todos y consulta, solo los del usuario.
-consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
-consulta = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario =" + req.session.id_usuario + " ORDER BY items.fecha_item DESC"
-
- console.log(consulta);
-
- bd.query(consulta, function(error,filas){
-           if (error) {            
-               
-               console.log('error en la consulta SELECT de comentarios');
-               return;
-           }
-           if (filas.length>0) {
-               console.log('entra a buscar comentarios de otro: ' + consulta1);
-               bd.query(consulta1, function(error,filas1){
-                   if (error) {       
-                            
-                       console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
-                       return;
-                   }
-                   if (filas1.length>0) {
-                       console.log('viene a verComentarios con mensajes propios y ajenos');
-                       
-                       res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
-                   }    
-                   console.log('viene a verComentarios solo propios');
-                   
-                   res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
-               }); //consulta1
-           } filas>0
-
-
-});    //query select
-
-
-
-    }
 });    //query insert
 
+
+//consulta 1 son todos y consulta, solo los del usuario.
+     consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
+     consulta = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario =" + req.session.id_usuario + " ORDER BY items.fecha_item DESC"
+
+      console.log(consulta);
+    
+      bd.query(consulta, function(error,filas){
+                if (error) {            
+                    
+                    console.log('error en la consulta SELECT de comentarios');
+                    return;
+                }
+                if (filas.length>0) {
+                    console.log('entra a buscar comentarios de otro: ' + consulta1);
+                    bd.query(consulta1, function(error,filas1){
+                        if (error) {       
+                                 
+                            console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
+                            return;
+                        }
+                        if (filas1.length>0) {
+                            console.log('viene a verComentarios con mensajes propios y ajenos');
+                            
+                            res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
+                        }    
+                        console.log('viene a verComentarios solo propios');
+                        
+                        res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
+                    }); //consulta1
+                } filas>0
+
+
+  });    //query select
 
   }); //router
 
