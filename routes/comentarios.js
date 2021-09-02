@@ -3,7 +3,7 @@ var router = express.Router();
 
 //incluimos el paquete bd con la conexion a la tabla sql
 var bd=require('./bd');
-
+var bd2=require('./bd');
 router.use(express.urlencoded({ extended: false }));
 
 //Alta de registros
@@ -67,6 +67,10 @@ bd.query(queryinsert).then(function (error,resultado){
     }
 });    //query insert
 
+res.render('/comentarios/listadoComentarios/'+req.session.usuario);
+
+/* comento para probar el RENDER
+
 
 //consulta 1 son todos y consulta, solo los del usuario.
      consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
@@ -74,7 +78,7 @@ bd.query(queryinsert).then(function (error,resultado){
 
       console.log(consulta);
     
-      bd.query(consulta, function(error,filas){
+      bd2.query(consulta, function(error,filas){
                 if (error) {            
                     
                     console.log('error en la consulta SELECT de comentarios');
@@ -82,7 +86,7 @@ bd.query(queryinsert).then(function (error,resultado){
                 }
                 if (filas.length>0) {
                     console.log('entra a buscar comentarios de otro: ' + consulta1);
-                    bd.query(consulta1, function(error,filas1){
+                    bd2.query(consulta1, function(error,filas1){
                         if (error) {       
                                  
                             console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);
@@ -101,8 +105,8 @@ bd.query(queryinsert).then(function (error,resultado){
 
 
   });    //query select
-
-  }); //router
+*/
+  }); //router -------------------------alta-------------------------------------------
 
 
 router.get('/listadoComentarios/:id_usuario', function(req, res, next) {
