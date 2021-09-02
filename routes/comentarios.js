@@ -19,31 +19,32 @@ router.post('/alta',  function(req, res, next) {
     console.log(req.body.desc_item);
     console.log(req.body.id_usuario);
 
-    v_id_usuario =req.body.id_usuario ;
+    req.session.id_usuario =req.body.id_usuario ;
 
-    let ts = Date.now();
+    /* armar fecha y hora para grabar -----------*/
+                let ts = Date.now();
 
-    let date_ob = new Date(ts);
-        let date = ("0" + date_ob.getDate()).slice(-2);
-        let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-        let year = date_ob.getFullYear();
-      // hora-----------------------
-      let date_ob2 = new Date();
+                let date_ob = new Date(ts);
+                    let date = ("0" + date_ob.getDate()).slice(-2);
+                    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+                    let year = date_ob.getFullYear();
+                // hora-----------------------
+                let date_ob2 = new Date();
 
-      // current hours
-      let hours = ("0" + date_ob2.getHours()).slice(-2);
-      let minutes = ("0" + date_ob2.getMinutes()).slice(-2);
+                // current hours
+                let hours = ("0" + date_ob2.getHours()).slice(-2);
+                let minutes = ("0" + date_ob2.getMinutes()).slice(-2);
 
-      console.log(hours + ":" + minutes);
-      console.log(year + "-" + month + "-" + date);
+                console.log(hours + ":" + minutes);
+                console.log(year + "-" + month + "-" + date);
 
-      var v_fecha_paraguardar =    date + "/" + month + "/" + year + " " +hours + ":" + minutes; 
-    console.log(v_fecha_paraguardar);
-  
+                var v_fecha_paraguardar =    date + "/" + month + "/" + year + " " +hours + ":" + minutes; 
+                console.log(v_fecha_paraguardar);
+    /* fin fecha-------------*/          
 
      var registro={
-         desc_item:req.body.desc_item,
-         id_usuario:req.body.id_usuario,
+         desc_item: req.body.desc_item,
+         id_usuario: req.session.id_usuario,
          fecha_item: v_fecha_paraguardar
        }; 
 
@@ -68,6 +69,7 @@ router.post('/alta',  function(req, res, next) {
                     return;
                 }
                 if (filas.length>0) {
+                    console.log('entra a buscar comentarios de otro: ' + consulta1);
                     bd.query(consulta1, function(error,filas1){
                         if (error) {       
                                  
@@ -75,11 +77,11 @@ router.post('/alta',  function(req, res, next) {
                             return;
                         }
                         if (filas1.length>0) {
-                            console.log('viene a verComentarios');
+                            console.log('viene a verComentarios con mensajes propios y ajenos');
                             
                             res.render('verComentarios',{notiene:false, notienen:false,items:filas, items1:filas1, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                         }    
-                        console.log('viene a verComentarios');
+                        console.log('viene a verComentarios solo propios');
                         
                         res.render('verComentarios',{notiene:false, notienen:true,items:filas, usuario:req.session.usuario,id_usuario:req.session.id_usuario});
                     }); //consulta1
