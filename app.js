@@ -8,7 +8,6 @@ var app = express();
 
 const session = require('cookie-session');
 
-
 var handlebars = require('express-handlebars');    
 
 app.engine('handlebars', handlebars({
