@@ -1,6 +1,7 @@
 
 var mysql = require('mysql');
 //var util = require('util');
+/*desde que puse pool me falla...
 
 var cliente = mysql.createPool({
   connectionLimit: 10,
@@ -9,8 +10,14 @@ var cliente = mysql.createPool({
   password: process.env.MYSQL_PASSWORD,
   database: process.env.MYSQL_DB_NAME
 })
-
-//cliente.query = util.promisify(cliente.query);
+cliente.query = util.promisify(cliente.query);
+*/
+var cliente = mysql.createConnection({
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DB_NAME
+})
 
 /* para conexion local 
 var cliente = mysql.createConnection({
