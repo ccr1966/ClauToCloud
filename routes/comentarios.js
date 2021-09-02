@@ -48,10 +48,10 @@ router.post('/alta',  function(req, res, next) {
          fecha_item: v_fecha_paraguardar
        }; 
 
-      bd.query('insert into items set ?',registro, function (error,resultado){
+      bd.query('insert into items set ?',[registro]).then(function (error,resultado){
           if (error){
               
-              console.log(error);
+              console.log('ERROR en INSERT de items' + error);
               return;
           }
       });    //query insert
