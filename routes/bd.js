@@ -46,6 +46,16 @@ var cliente = mysql.createConnection({
     console.log("query de creacion de tabla ITEMS ok. Si no existe se crea.");  
     });
 
+    cliente.query("DELETE FROM  `usuarios`", function (err, result) {  
+        if (err) throw err;  
+        
+        console.log("paso por DELETE de usuarios.");
+        cliente.query("INSERT IGNORE INTO `usuarios` (`usuario`, `clave`, `nombre`, `apellido`) VALUES ('flavia', '1234', 'Flavia', 'Ursino'),  ('claudia', '1234', 'Claudia Cecilia', 'Rossi')", function (err, result) {  
+            if (err) throw err;  
+            console.log("paso por INSERT de usuarios.");  
+         }); //insert
+     }); //DELETE
+/*
    cliente.query("SELECT * FROM  usuarios", function (err, filas) {  
           if (err) throw err;  
           console.log("paso por select  de usuarios.");
@@ -57,6 +67,6 @@ var cliente = mysql.createConnection({
                    }); //insert
             } // if no hay filas 
     }); //select para chequear si hay
-
+*/
 module.exports=cliente;
 
