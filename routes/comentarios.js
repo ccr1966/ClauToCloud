@@ -56,7 +56,7 @@ router.post('/alta',  function(req, res, next) {
       });    //query insert
 */
 queryinsert = 'insert into items set desc_item = "'+ req.body.desc_item + '", id_usuario= '+ req.session.id_usuario + ', fecha_item = "'+v_fecha_paraguardar+'" ';
-
+console.log(queryInsert);
 bd.query(queryinsert).then(function (error,resultado){
     if (error){      
         console.log('ERROR en INSERT de Items' + error);
