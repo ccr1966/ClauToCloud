@@ -3,7 +3,7 @@ var router = express.Router();
 
 //incluimos el paquete bd con la conexion a la tabla sql
 var bd=require('./bd');
-var bd2=require('./bd');
+
 router.use(express.urlencoded({ extended: false }));
 
 //Alta de registros
@@ -74,7 +74,7 @@ bd.query(queryinsert, function (error,resultado){
 
       console.log(consulta);
     
-      bd2.query(consulta, function(error,filas){
+      bd.query(consulta, function(error,filas){
                 if (error) {            
                     
                     console.log('error en la consulta SELECT de comentarios');
@@ -82,7 +82,7 @@ bd.query(queryinsert, function (error,resultado){
                 }
                 if (filas.length>0) {
                     console.log('entra a buscar comentarios de otro: ' + consulta1);
-                    bd2.query(consulta1, function(error,filas1){
+                    bd.query(consulta1, function(error,filas1){
                         if (error) {       
                                  
                             console.log('error en la consulta1 SELECT de comentarios' + consulta1 + ' '+ error);

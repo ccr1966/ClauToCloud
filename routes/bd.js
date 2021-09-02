@@ -1,6 +1,6 @@
 
 var mysql = require('mysql');
-var util = require('util');
+//var util = require('util');
 
 var cliente = mysql.createPool({
   connectionLimit: 10,
@@ -10,7 +10,7 @@ var cliente = mysql.createPool({
   database: process.env.MYSQL_DB_NAME
 })
 
-cliente.query = util.promisify(cliente.query);
+//cliente.query = util.promisify(cliente.query);
 
 /* para conexion local 
 var cliente = mysql.createConnection({
@@ -40,16 +40,11 @@ var cliente = mysql.createConnection({
 	
    });  //create table usuarios
   
-
    cliente.query("CREATE TABLE IF NOT EXISTS items (`id_item` int(100) NOT NULL AUTO_INCREMENT, `id_usuario` int(100), `fecha_item` datetime, `desc_item` varchar(255) NOT NULL,  PRIMARY KEY (`id_item`)    ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ", function (err, result) {  
     if (err) throw err;  
     console.log("query de creacion de tabla ITEMS ok. Si no existe se crea.");  
     });
-
-   
-      
- 
-
+    
    cliente.query("SELECT * FROM  usuarios", function (err, filas) {  
           if (err) throw err;  
           console.log("paso por select  de usuarios.");
