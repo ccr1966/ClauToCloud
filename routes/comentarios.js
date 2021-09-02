@@ -67,10 +67,6 @@ bd.query(queryinsert).then(function (error,resultado){
     }
 });    //query insert
 
-res.render('/comentarios/listadoComentarios/'+req.session.usuario);
-
-/* comento para probar el RENDER
-
 
 //consulta 1 son todos y consulta, solo los del usuario.
      consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
@@ -105,7 +101,7 @@ res.render('/comentarios/listadoComentarios/'+req.session.usuario);
 
 
   });    //query select
-*/
+
   }); //router -------------------------alta-------------------------------------------
 
 
