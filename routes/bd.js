@@ -1,6 +1,6 @@
 
 var mysql = require('mysql');
-var util = requiere('util');
+var util = require('util');
 
 var cliente = mysql.createPool({
   connectionLimit: 10,
