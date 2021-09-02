@@ -47,14 +47,23 @@ router.post('/alta',  function(req, res, next) {
          id_usuario: req.session.id_usuario,
          fecha_item: v_fecha_paraguardar
        }; 
-
-      bd.query('insert into items set ?',registro, function (error,resultado){
-          if (error){
-              
+/*esto da error
+      bd.query('insert into items set ?',[registro]).then(function (error,resultado){
+          if (error){      
               console.log('ERROR en INSERT de Items' + error);
               return;
           }
       });    //query insert
+*/
+queryinsert = 'insert into items set desc_item = "'+ req.body.desc_item + '", id_usuario= '+ req.session.id_usuario + ', fecha_item = "'+v_fecha_paraguardar+'" ';
+
+bd.query(queryinsert).then(function (error,resultado){
+    if (error){      
+        console.log('ERROR en INSERT de Items' + error);
+        return;
+    }
+});    //query insert
+
 
 //consulta 1 son todos y consulta, solo los del usuario.
      consulta1 = "select items.desc_item, items.id_item, items.fecha_item, usuarios.usuario,usuarios.id_usuario from items INNER JOIN usuarios ON usuarios.id_usuario=items.id_usuario WHERE usuarios.id_usuario <> " + req.session.id_usuario + "   ORDER BY items.fecha_item DESC"
