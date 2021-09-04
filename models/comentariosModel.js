@@ -25,7 +25,6 @@ async function bajaComentarios(id){
 
 async function altaComentarios(des,id,fecha){
     try{
-        
         var consulta= "INSERT INTO items (desc_item,id_usuario,fecha_item) VALUES ('"+des+"', "+id+",'"+fecha+ "')";
         console.log(consulta);
         var filas = await cliente.query(consulta);
@@ -37,13 +36,11 @@ async function altaComentarios(des,id,fecha){
     }
 }
 
-
 async function encontrarComentarios(id){
     var consulta = "select * from items WHERE items.id_item= "+ id;
 
     var items = await cliente.query(consulta);
     return items;
-
 }
 
 async function modificarComentarios(obj, id){
@@ -54,6 +51,6 @@ async function modificarComentarios(obj, id){
     } catch (eror){
         throw error;
     }
-} // modificar---------------------------------------
+} 
 
 module.exports = { listadoComentariosPropios, listadoComentariosAjenos, bajaComentarios, altaComentarios, encontrarComentarios, modificarComentarios }

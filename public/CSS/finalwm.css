@@ -362,3 +362,14 @@ width:70%;
 .formulario .acciones{
     text-align:center;
 }
+#boton-bonito {
+    text-decoration:none;
+    color:white;
+    padding:10px 20px;
+    background-color:cornflowerblue;
+    display:inline-block
+    }
+    
+#boton-bonito:hover {
+    background-color:royalblue;
+}
