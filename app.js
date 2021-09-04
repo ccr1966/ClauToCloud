@@ -33,7 +33,7 @@ app.use(session({
   saveUnInitialized:true
 }));
 
-// funcion de control de paginas para usuario logeado. Me dio error...
+/* funcion de control de paginas para usuario logeado. Me dio error...
 secured = async(req,res,next) =>{
   try{
     console.log(req.session.id_usuario);
@@ -47,7 +47,7 @@ secured = async(req,res,next) =>{
         console.log(error);
   }
 }//secured 
-
+*/
 
 app.use(logger('dev'));
 app.use(express.json());

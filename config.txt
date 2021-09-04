@@ -1,11 +1,5 @@
-CLEARDB_DATABASE_URL: mysql://b80fba2a620d8d:14284f40@us-cdbr-east-04.cleardb.com/heroku_5f8e883e779f0b7?reconnect=true
-DB name: 	heroku_5f8e883e779f0b7 
+CLEARDB_DATABASE_URL: 
+DB name: 	heroku_ed243507c04da6e 
 Host: 		us-cdbr-east-04.cleardb.com 
-Password: 	14284f40 
-User: 		b80fba2a620d8d 
-
-module.exports = {
-  NODE_ENV: process.env.NODE_ENV || 'development',
-  HOST: process.env.HOST || '127.0.0.1',
-  PORT: process.env.PORT || 3000
-}
+Password: 	48d4a4c4 
+User: 		b7edf02f03c8fd 
