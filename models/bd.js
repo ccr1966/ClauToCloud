@@ -1,5 +1,5 @@
 
-var mysql = require('mysql');
+var mysql = require('mysql2');
 var util = require('util');
 //Para usar la conexion mediante dotenv
 require('dotenv').config();
