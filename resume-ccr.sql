@@ -20,6 +20,4 @@ INSERT IGNORE INTO `usuarios`
 (`usuario`, `clave`, `nombre`, `apellido`) 
 VALUES 
 ('flavia', '1234', 'Flavia', 'Ursino'),  
-('claudia', '1234', 'Claudia Cecilia', 'Rossi'),
-('pablo', '2468', 'Pablo', 'Barcia'),
-('raul', '1357', 'Raul', 'Rossi')
+('claudia', '1234', 'Claudia Cecilia', 'Rossi')

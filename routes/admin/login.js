@@ -45,7 +45,7 @@ router.post('/',  async function(req, res, next) {
     else{
       res.render('admin/login', {
         layout: 'admin/layout',
-        mensaje:'You are not a user or you put a incorrect password',
+        mensaje:'You are not a user or you put an incorrect password',
         error:true
       });
     }
@@ -106,7 +106,7 @@ router.post('/',  async function(req, res, next) {
     else{
       res.render('admin/login', {
         layout: 'admin/layout',
-        mensaje:'You are not a user or you put a incorrect password',
+        mensaje:'You are not a user or you put an incorrect password',
         error:true
       });
     }
