@@ -4,7 +4,7 @@ var comentariosModel = require('../../models/comentariosModel');
 
 router.get('/:id_usuario', async function(req, res, next) {
     console.log("entra al GET de comentarios.js");
-    
+
     var notiene=false; // controla si el usuario tiene comentarios propios  
     var notienen=false; // controla hay  comentarios de otros usuarios  
     req.session.id_usuario = req.params.id_usuario;
@@ -17,7 +17,7 @@ router.get('/:id_usuario', async function(req, res, next) {
     if (JSON.stringify(items1)=='[]'){
         notienen= true;
     }
-    res.render('admin/Comentarios', {
+    res.render('admin/comentarios', {
             layout: 'layout',
             usuario: req.session.usuario,
             id_usuario: req.session.id_usuario,
