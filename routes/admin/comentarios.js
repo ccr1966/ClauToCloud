@@ -44,7 +44,7 @@ router.get('/baja/:id_item/:id_usuario',  async (req, res, next) => {
     if (JSON.stringify(items1)=='[]'){
         notienen= true;
     }
-    res.render('admin/Comentarios', {
+    res.render('admin/comentarios', {
             layout: 'layout',
             usuario: req.session.usuario,
             id_usuario: req.session.id_usuario,
