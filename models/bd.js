@@ -33,12 +33,17 @@ cliente.query("CREATE TABLE IF NOT EXISTS items (`id_item` int(100) NOT NULL AUT
     console.log("query de creacion de tabla ITEMS ok. Si no existe se crea.");  
 });
 
+cliente.query("DELETE  FROM  usuarios", function (err, filas) {  
+  if (err) throw err;  
+  console.log("paso por ELIMINAR  usuarios.");
+});
+
 cliente.query("SELECT * FROM  usuarios", function (err, filas) {  
   if (err) throw err;  
   console.log("paso por select  de usuarios.");
   if (filas.length<0) {
         console.log("va a INSERTAR USUARIOS si no hay... ");  
-        cliente.query("INSERT IGNORE INTO `usuarios` (`usuario`, `clave`, `nombre`, `apellido`) VALUES ('flavia', '1234', 'Flavia', 'Ursino'),  ('claudia', '1234', 'Claudia Cecilia', 'Rossi')", function (err, result) {  
+        cliente.query("INSERT IGNORE INTO `usuarios` (`usuario`, `clave`, `nombre`, `apellido`) VALUES ('flavia', '1234', 'Flavia', 'Ursino'),  ('claudia', '1234', 'Claudia Cecilia', 'Rossi'),  ('raul', '1357', 'Raul', 'Rossi'),  ('pablo', '2468', 'Pablo Leandro', 'Barcia')", function (err, result) {  
                 if (err) throw err;  
                 console.log("paso por inserts de usuarios.");  
             }); //insert
