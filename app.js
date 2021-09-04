@@ -4,7 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//var util =
 var app = express();
 
 const session = require('cookie-session');
@@ -23,12 +22,10 @@ app.engine('handlebars', handlebars({
         }//engine
 ));
 
-
 // view engine setup
 //app.engine('hbs', hbs({helpers: require("./public/js/helpers.js").helpers,extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
 
 app.use(session({
   secret:'esmeralda2407',
@@ -36,9 +33,7 @@ app.use(session({
   saveUnInitialized:true
 }));
 
-
-
-// funcion de control de paginas para usuario logeado
+// funcion de control de paginas para usuario logeado. Me dio error...
 secured = async(req,res,next) =>{
   try{
     console.log(req.session.id_usuario);
@@ -99,8 +94,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-
 
 module.exports = app;
