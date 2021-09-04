@@ -21,7 +21,7 @@ var cliente = mysql.createPool({
 })
 
 cliente.query = util.promisify(cliente.query);
- 
+ /*
 cliente.query("CREATE TABLE IF NOT EXISTS usuarios (`id_usuario` int(100) NOT NULL AUTO_INCREMENT,`usuario` varchar(20) NOT NULL,      `clave` varchar(20) NOT NULL,`nombre` varchar(50) NOT NULL,      `apellido` varchar(50) NOT NULL,  PRIMARY KEY (`id_usuario`), UNIQUE(`usuario`)    ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ", function (err, result) {  
     if (err) throw err;  
     console.log("query de creacion de tabla USUARIOS ok. Si no existe se crea. ");  
@@ -47,6 +47,6 @@ cliente.query("SELECT * FROM  usuarios", function (err, filas) {
     } // if no hay filas 
 }); //select para chequear si hay
 
-
+*/
 module.exports=cliente;
 

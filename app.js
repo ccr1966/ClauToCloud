@@ -69,6 +69,7 @@ var comentarios = require('./routes/admin/comentarios');
 
 app.use('/', routes);
 app.use('/home', home);
+app.use('/error', error);
 app.use('/career', career);
 app.use('/education', education);
 app.use('/formulario',  formulario);
@@ -92,7 +93,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('/error');
+  res.render('error');
 });
 
 module.exports = app;

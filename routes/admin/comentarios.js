@@ -3,6 +3,7 @@ var router = express.Router();
 var comentariosModel = require('../../models/comentariosModel');
 
 router.get('/:id_usuario', async function(req, res, next) {
+    console.log("entra al GET de comentarios.js");
     
     var notiene=false; // controla si el usuario tiene comentarios propios  
     var notienen=false; // controla hay  comentarios de otros usuarios  
