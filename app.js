@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//var util =
 var app = express();
 
 const session = require('cookie-session');
@@ -35,6 +36,24 @@ app.use(session({
   saveUnInitialized:true
 }));
 
+
+
+// funcion de control de paginas para usuario logeado
+secured = async(req,res,next) =>{
+  try{
+    console.log(req.session.id_usuario);
+    if(req.session.id_usuario){
+        next();
+    }
+    else{
+      res.redirect('admin/login');
+    }
+  } catch(error){
+        console.log(error);
+  }
+}//secured 
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -45,20 +64,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 var home= require('./routes/home');
 var education= require('./routes/education');
 var career= require('./routes/career');
-var usuarios = require('./routes/usuarios'); 
-var routes = require('./routes/index');
-var comentarios = require('./routes/comentarios');
 var formulario = require('./routes/formulario');
 var look = require('./routes/look');
+
+var login = require('./routes/admin/login'); 
+var routes = require('./routes/admin/login');
+var comentarios = require('./routes/admin/comentarios');
+
 
 app.use('/', routes);
 app.use('/home', home);
 app.use('/career', career);
 app.use('/education', education);
-app.use('/usuarios', usuarios);
-app.use('/comentarios', comentarios);
-app.use('/formulario', formulario);
-app.use('/look', look);
+app.use('/formulario',  formulario);
+app.use('/look',  look);
+
+app.use('/admin/login', login);
+app.use('/admin/comentarios',  comentarios);
 
 // fin ----------------------------------------------------
 
@@ -77,5 +99,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;

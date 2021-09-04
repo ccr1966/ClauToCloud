@@ -16,7 +16,6 @@
       </div>
  </header>
  
-{{#if id_usuario}}
 <nav> 
    <div class="holder"><h3>User: {{usuario}} </h3>
     <ul>
@@ -25,14 +24,18 @@
         <li><a href="/career/">Career</a></li>
         <li><a  href="/look/">Look this!</a></li>
         <li><a href="/formulario/">Contact me!</a></li>
-        <li><a href="/comentarios/listadoComentarios/{{id_usuario}}">Comments</a></li>
-        <li><a href="/usuarios/salir/">Salir</a></li>
+        <li><a href="/admin/comentarios/{{id_usuario}}">Comments</a></li>
+        <li><a href="/login/salir/">Salir</a></li>
         
     </ul> 
     </div>
   </nav>  
-  {{/if}} 
      <main class="holder">
+          {{#if error}}
+               <div class="servicio"> 
+               <h2>{{mensaje}}</h2>
+               </div>
+         {{/if}}
      </main>
   <body  class="main">
     {{{body}}}

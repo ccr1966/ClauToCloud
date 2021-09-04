@@ -3,3 +3,9 @@ DB name: 	heroku_5f8e883e779f0b7
 Host: 		us-cdbr-east-04.cleardb.com 
 Password: 	14284f40 
 User: 		b80fba2a620d8d 
+
+module.exports = {
+  NODE_ENV: process.env.NODE_ENV || 'development',
+  HOST: process.env.HOST || '127.0.0.1',
+  PORT: process.env.PORT || 3000
+}

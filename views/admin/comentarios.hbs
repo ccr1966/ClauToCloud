@@ -1,0 +1,40 @@
+
+<main class="holder">
+ 
+    <div class="comentarios">
+       <h2>Comments <a href="/admin/comentarios/alta/{{id_usuario}}"><img src="/img/alta.jpg">   </a></h2>
+      
+       {{#if notiene}}
+             <h5> You have no comments yet...</h5>
+       {{else}}
+            <h3>Your comments</h3>
+      {{/if}}
+    
+       {{#each items}}
+        <div class="comentario">
+              <a href="/admin/comentarios/baja/{{id_item}}/{{id_usuario}}"><img src="/img/delete.jpg">   </a>
+                <a href="/admin/comentarios/modificar/{{id_item}}/{{id_usuario}}"><img src="/img/modificar.jpg"></a>
+            <div class="info">
+            <h4>{{usuario }}-{{fecha_item }}</h4>
+            <p>{{desc_item }}</p>
+            </div>
+        </div>
+        {{/each}}
+      
+        {{#if notienen}}
+            <h5> There are no comments of other users yet...</h5>
+        {{else}}
+           <h3>Other users comments</h3>
+        {{/if}}
+      
+        {{#each items1}}
+        <div class="comentario">
+            <div class="info">
+            <h4>{{usuario }}-{{fecha_item }}</h4>
+            <p>{{desc_item }}</p>
+            </div>
+        </div>
+        {{/each}}   
+    </div>
+  
+</main>

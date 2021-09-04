@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    
+          <link rel="stylesheet" href="/CSS/finalwm.css"/>
+          <link rel="stylesheet" href="/CSS/normalize.css"/>
+          <link  href="https://fonts.google.com/css2?family=Open+Sans:wght@300;400;700&display=swap" />
+</head>  
+ 
+ 
+ <header>
+      <div class="cabecera"> 
+      <img SRC="/img/cara.jpg" width="100" alt="Resume Claudia"><h1>Claudia Cecilia Rossi</h1>
+      &nbsp;&nbsp;&nbsp;<h2>Bachelor Degree in Computer Science</h2>
+      </div>
+ </header>
+ 
+     <main class="holder">
+         {{#if error}}
+               <div class="servicio"> 
+               <h2>{{mensaje}}</h2>
+               </div>
+         {{/if}}
+     </main>
+
+  <body  class="main">
+    {{{body}}}
+     <footer>
+        <p>Dise&nacute;ado por Claudia Cecilia Rossi. &copy; 2021</p>
+     </footer>
+  </body>
+
+</html>
