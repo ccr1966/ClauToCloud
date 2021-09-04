@@ -3,11 +3,13 @@ var mysql = require('mysql2');
 var util = require('util');
 
 /* para HEROKU
-LINK HEROKU  mysql://b80fba2a620d8d:14284f40@us-cdbr-east-04.cleardb.com/heroku_5f8e883e779f0b7?reconnect=true
-MYSQL_DB_NAME: 	heroku_5f8e883e779f0b7 
+LINK HEROKU  
+mysql://b80fba2a620d8d:14284f40@us-cdbr-east-04.cleardb.com/heroku_5f8e883e779f0b7?reconnect=true
+nueva mysql://b7edf02f03c8fd:48d4a4c4@us-cdbr-east-04.cleardb.com/heroku_ed243507c04da6e?
+MYSQL_DB_NAME: 	heroku_ed243507c04da6e 
 MYSQL_HOST:		us-cdbr-east-04.cleardb.com 
-MYSQL_PASSWORD:	14284f40 
-MYSQL_USER: 	b80fba2a620d8d 
+MYSQL_PASSWORD:	48d4a4c4
+MYSQL_USER: 	b7edf02f03c8fd 
 */
 var cliente = mysql.createPool({
   connectionLimit: 10,
