@@ -132,12 +132,13 @@ footer{
      display:block;
  }
  h3{
-    color:#2e64a1;
+    color:grey;
     margin:0 0 lem;
-    font-size: 1.0em;
+    font-size: 1.2em;
     font-style:bold;
     font-weight: 30;
     text-align: right;
+    
  }
  .salir{
     color:#2e64a1;
