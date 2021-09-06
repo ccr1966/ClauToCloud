@@ -10,7 +10,7 @@ header{
 
 header h1{
     color:white;
-    font-size: 4.0em;
+    font-size: 2.5em;
     font-style:bold;
     font-weight: 100;
     display: inline-block;
@@ -21,7 +21,7 @@ header h2{
     color:white;
     font-size: 5.5em;
     font-style:bold;
-    font-weight: 50;
+    font-weight: 8;
     display: inline-block;
     position: relative;
     bottom:10px;
@@ -42,8 +42,8 @@ nav ul li{
     width:10.5%;
 }
 nav ul li a{
-    font-size: 3.5em;
     color:white;
+    font-size: 2.5em;
     text-decoration:none;
     text-align: center; 
     display:block;
@@ -245,7 +245,7 @@ footer{
 
 .cabecera  h1{
     color:white;
-    font-size: 2.0em;
+    font-size: 3.0em;
     font-style:bold;
     font-weight: 20;
     display: inline-block;
@@ -255,7 +255,7 @@ footer{
 }
 .cabecera h2{
     color:white;
-    font-size: 1.0em;
+    font-size: 2s.0em;
     font-style:bold;
     font-weight: 8;
     display: inline-block;
