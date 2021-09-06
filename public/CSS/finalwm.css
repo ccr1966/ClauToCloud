@@ -132,8 +132,8 @@ footer{
      display:block;
  }
  h3{
-    color:#2e64a1;
-    background-color: white;
+    color:white;
+    background-color:#2e64a1;
     margin:0 0 lem;
     font-size: 1.2em;
     font-style:bold;
