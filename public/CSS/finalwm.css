@@ -43,7 +43,7 @@ nav ul li{
 }
 nav ul li a{
     color:white;
-    font-size: 1.2em;
+    font-size: 1.0em;
     text-decoration:none;
     text-align: center; 
     display:block;
@@ -68,13 +68,13 @@ footer{
 
 .holder{
 
-   width: 1180px;
+   width: 1160px;
     margin: 0 auto;
 }
 
 .holdermain{
     background-color:rgb(117, 136, 12);
-    width: 1560px;
+    width: 150px;
     height: 300px;
      margin: 0 auto;
  }
