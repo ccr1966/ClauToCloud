@@ -68,7 +68,7 @@ footer{
 
 .holder{
 
-   width: 1150px;
+   width: 1180px;
     margin: 0 auto;
 }
 
@@ -109,11 +109,11 @@ footer{
      box-sizing: border-box;
  }
  .bienvenidos{
-     width:75%;
+     width:80%;
      padding-right:2em;
  }
  .testimonios{
-     width:25%;
+     width:20%;
  }
  .testimonio{
      background-color:#ccc;
