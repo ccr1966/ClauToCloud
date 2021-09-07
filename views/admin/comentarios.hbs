@@ -5,9 +5,9 @@
        <h2>Comments <a href="/admin/comentarios/alta/{{id_usuario}}"><img src="/img/alta.jpg">   </a></h2>
       
        {{#if notiene}}
-             <h3>Feel free to Write your first comment!</h3>
+             <h6>Feel free to Write your first comment!</h6>
        {{else}}
-            <h3>Your comments</h3>
+            <h6>Your comments</h6>
       {{/if}}
     
        {{#each items}}
@@ -22,9 +22,9 @@
         {{/each}}
       
         {{#if notienen}}
-            <h3> There are no comments of other users yet...</h3>
+            <h6> There are no comments of other users yet...</h6>
         {{else}}
-           <h3>Other users comments</h3>
+           <h6>Other users comments</h6>
         {{/if}}
       
         {{#each items1}}

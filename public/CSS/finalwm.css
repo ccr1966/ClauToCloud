@@ -133,12 +133,22 @@ footer{
  }
  h3{
     color:white;
-    background-color:#2e64a1;
     margin:0 0 lem;
     font-size: 1.2em;
     font-style:bold;
     font-weight: 30;
     text-align: right;
+    
+ }
+
+ h6{
+    color:white;
+    background-color:cornflowerblue;
+    margin:0 0 lem;
+    font-size: 1.2em;
+    font-style:bold;
+    font-weight: 30;
+    text-align: left;
     
  }
  .salir{
