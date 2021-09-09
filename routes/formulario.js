@@ -32,7 +32,7 @@ router.post('/enviar',  function(req, res, next) {
     
      const mailOptions = {
         from: v_nombre + "<" + v_email + ">",
-        to: "flavia.ursino@gmail.com", // Cambia esta parte por el destinatario 'flavia.ursino@gmail.com'
+        to: "claudiarossi0707@gmail.com", // Cambia esta parte por el destinatario 'flavia.ursino@gmail.com'
         subject: v_asunto,
         html: "<font face=arial size=4><strong>Nombre:</strong> " + v_nombre + "<br/>"
         + "<strong>E-mail:</strong> " + v_email + " <br/>"
