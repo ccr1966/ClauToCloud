@@ -22,11 +22,11 @@ var cliente = mysql.createPool({
 
 cliente.query = util.promisify(cliente.query);
 
-
+/*
 cliente.query("INSERT IGNORE INTO `usuarios` (`usuario`, `clave`, `nombre`, `apellido`) VALUES ('guest', '1234', 'My', 'Guest')", function (err, result) {  
   if (err) throw err;  
-  console.log("paso por inserts de usuarios.");  
+  console.log("Insertó user guest.");  
 }); //insert
-
+*/
 module.exports=cliente;
 
