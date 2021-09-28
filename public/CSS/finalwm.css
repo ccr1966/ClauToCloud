@@ -5,7 +5,7 @@ body{
 }
 header{
     background-color:#467ebe;
-    padding: 0.3em 0;
+    padding: 0.2em 0;
 }
 
 header h1{
@@ -15,7 +15,7 @@ header h1{
     font-weight: 100;
     display: inline-block;
     position: relative;
-    bottom:30px;
+    bottom:20px;
 }
 header h2{
     color:white;
