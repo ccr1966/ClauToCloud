@@ -8,7 +8,10 @@ router.use(express.urlencoded({ extended: false }));
 // GET users listing.
 router.get('/', function(req, res, next) {
 
-  res.render('education');
+  res.render('education', {
+    layout: 'layout',
+  });
+  
 });
 
 module.exports = router;

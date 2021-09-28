@@ -8,7 +8,9 @@ router.use(express.urlencoded({ extended: false }));
 // GET users listing.
 router.get('/', function(req, res, next) {
 
-  res.render('home');
+  res.render('home', {
+    layout: 'layout',
+  });
 
 });
 module.exports = router;
