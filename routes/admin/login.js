@@ -40,7 +40,7 @@ router.post('/',  async function(req, res, next) {
         req.session.id_usuario = filas.id_usuario;
         req.session.usuario = filas.usuario;
         console.log('ENTRO POR FILAS DISTINTO DE indefinido. id_usuario=' + req.session.id_usuario);
-        res.render('home', {id_usuario:filas.id_usuario, usuario:usuario } );
+        res.render('home');
     }
     else{
       res.render('admin/login', {
