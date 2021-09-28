@@ -254,6 +254,9 @@ footer{
     font-size: 2.3em;
     font-style:bold;
     font-weight: 20;
+    display: inline-block;
+    position: relative;
+    bottom:40px;
     text-align: center;
 }
 .cabecera h2{
@@ -261,6 +264,9 @@ footer{
     font-size: 1.7em;
     font-style:bold;
     font-weight: 8;
+    display: inline-block;
+    position: relative;
+    bottom:40px;
     text-align: left;
 }
 
