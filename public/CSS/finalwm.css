@@ -125,14 +125,15 @@ footer{
      margin:1em 0;
      display:block;
  }
+ 
+
  h3{
     color:white;
-    margin:0 0 lem;
-    font-size: 1.2em;
-    font-style:bold;
-    font-weight: 30;
-    text-align: right;
-    
+    font-size: 1.1em;
+    text-decoration:none;
+    text-align: center; 
+    display:block;
+    padding:0.2em 0.4em;    
  }
 
  h6{
