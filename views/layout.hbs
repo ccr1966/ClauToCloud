@@ -17,7 +17,7 @@
    <div class="holder1"><h3>User:&nbsp; {{usuario}} </h3>
     <ul>
         <li><a href="/home/">Home</a></li>
-        <li><a  href="/education/">Education</a></li>
+        <li><a href="/education/">Education</a></li>
         <li><a href="/career/">Career</a></li>
         <li><a  href="/look/">Look this!</a></li>
         <li><a href="/formulario/">Contact</a></li>
@@ -26,13 +26,11 @@
        </ul> 
     </div>
   </nav>  
+  
      <main class="holder">
-          {{#if error}}
-               <div class="servicio"> 
-               <h2>{{mensaje}}</h2>
-               </div>
-         {{/if}}
+          {{#if error}} <div class="servicio">  <h2>{{mensaje}}</h2>   </div> {{/if}}
      </main>
+
   <body  class="main">
     {{{body}}}
        <footer>
