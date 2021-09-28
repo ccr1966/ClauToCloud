@@ -174,10 +174,10 @@ footer{
   }
 
   .cabecera img{
-    border-radius:20%;
-    box-shadow: 0 0 2px rgba(0,0,0,0.5);
-    margin:0.2em 0 1em;
-    max-width:70%;
+    border-radius:50%;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+    margin:0.1em 0 0em;
+    max-width:50%;
 }
   .persona h5,
   .persona h6{
