@@ -256,7 +256,7 @@ footer{
     font-weight: 20;
     display: inline-block;
     position: relative;
-    bottom:40px;
+    
     text-align: center;
 }
 .cabecera h2{
@@ -266,7 +266,6 @@ footer{
     font-weight: 8;
     display: inline-block;
     position: relative;
-    bottom:40px;
     text-align: left;
 }
 
