@@ -129,11 +129,11 @@ footer{
 
  h3{
     color:white;
-    font-size: 1.1em;
+    font-size: 1.0em;
     text-decoration:none;
-    text-align: center; 
+    text-align: right; 
     display:block;
-    padding:0.2em 0.4em;    
+    padding:0.1em 0.1em;    
  }
 
  h6{
