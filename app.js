@@ -74,7 +74,7 @@ app.use('/descargar', descargar);
 app.use('/career', career);
 app.use('/education', education);
 app.use('/formulario',  formulario);
-app.use('/look',  look);
+app.use('/look',  look); 
 
 app.use('/admin/login', login);
 app.use('/admin/comentarios',  comentarios);
