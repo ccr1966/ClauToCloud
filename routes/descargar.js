@@ -12,7 +12,7 @@ router.get('/:archivo', function(req, res, next) {
     var v_archivo = req.params.archivo;
     console.log('en pdf.js con archivo= ' + v_archivo);
   
-    res.download('/' + v_archivo,v_archivo);
+    res.download(v_archivo,v_archivo);
   
   });
 
