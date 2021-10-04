@@ -92,7 +92,7 @@ app.get('/descargar/:archivo', function(req, res, next) {
   var v_archivo = req.params.archivo;
   console.log('en pdf.js con archivo= ' + v_archivo);
 
-  res.download(__dirname+'/img/' +v_archivo,v_archivo);
+  res.download('/img/' +v_archivo,v_archivo);
 
 });
 
