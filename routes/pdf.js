@@ -1,26 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var fs = require("fs");
 
 
 //var bodyParser = require('body-parser');
 router.use(express.urlencoded({ extended: false }));
 
-var file = fs.createReadStream('./public/img/Resume_CCR.pdf');
-var stat = fs.statSync('./public/img/Resume_CCR.pdf');
-
 // GET users listing.
-router.get('/', function(req, res, next) {
+router.get('/:archivo', function(req, res, next) {
 
-  console.log('en HOME.js session id usuario= ' + req.session.id_usuario );
-  console.log('en HOME.js session usuario= ' + req.session.usuario );
+  var v_archivo = req.params.archivo;
+  console.log('en pdf.js con archivo= ' + v_archivo);
 
-  res.setHeader('Content-Length', stat.size);
-  res.setHeader('Content-Type', 'application/pdf');
-  res.setHeader('Content-Disposition', 'attachment; filename=Resume.pdf');
-  file.pipe(res);
-
-  //res.render('home', {usuario:req.session.usuario,id_usuario: req.session.id_usuario});
+  res.download(__dirname+'/public/img/' +v_archivo,v_archivo);
 
 });
 module.exports = router;
