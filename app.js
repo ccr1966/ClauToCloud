@@ -86,6 +86,16 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+
+app.get('/descargar/:archivo', function(req, res, next) {
+
+  var v_archivo = req.params.archivo;
+  console.log('en pdf.js con archivo= ' + v_archivo);
+
+  res.download(__dirname+'/img/' +v_archivo,v_archivo);
+
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
