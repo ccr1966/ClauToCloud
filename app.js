@@ -66,7 +66,7 @@ var login = require('./routes/admin/login');
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
 
-var decargar= require('./routes/descargar');
+var descargar= require('./routes/descargar');
 
 app.use('/', routes);
 app.use('/home', home);
