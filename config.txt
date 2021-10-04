@@ -1,5 +1,5 @@
 CLEARDB_DATABASE_URL: 
-DB name: 	heroku_ed243507c04da6e 
-Host: 		us-cdbr-east-04.cleardb.com 
-Password: 	48d4a4c4 
-User: 		b7edf02f03c8fd 
+DB name: 	heroku_ed243507c04da6e
+Host: 		us-cdbr-east-04.cleardb.com
+Password: 	48d4a4c4
+User: 		b7edf02f03c8fd

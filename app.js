@@ -66,10 +66,11 @@ var login = require('./routes/admin/login');
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
 
+var pdf= require('./routes/pdf');
 
 app.use('/', routes);
 app.use('/home', home);
-
+app.use('/pdf', pdf);
 app.use('/career', career);
 app.use('/education', education);
 app.use('/formulario',  formulario);
