@@ -66,11 +66,11 @@ var login = require('./routes/admin/login');
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
 
-var pdf= require('./routes/pdf');
+var decargar= require('./routes/descargar');
 
 app.use('/', routes);
 app.use('/home', home);
-app.use('/pdf', pdf);
+app.use('/descargar', descargar);
 app.use('/career', career);
 app.use('/education', education);
 app.use('/formulario',  formulario);
@@ -87,14 +87,7 @@ app.use(function(req, res, next) {
 });
 
 
-app.get('/descargar/:archivo', function(req, res, next) {
 
-  var v_archivo = req.params.archivo;
-  console.log('en pdf.js con archivo= ' + v_archivo);
-
-  res.download('/img/' +v_archivo,v_archivo);
-
-});
 
 // error handler
 app.use(function(err, req, res, next) {
