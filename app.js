@@ -33,7 +33,7 @@ app.use(session({
   saveUnInitialized:true
 }));
 
-/* funcion de control de paginas para usuario logeado. Me dio error...
+/* funcion de control de paginas para usuario logeado. Me dio error...*/
 secured = async(req,res,next) =>{
   try{
     console.log(req.session.id_usuario);
@@ -47,7 +47,7 @@ secured = async(req,res,next) =>{
         console.log(error);
   }
 }//secured 
-*/
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -55,11 +55,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*/ Express config
-var app = express().configure(function () {
-  this.use('/public', express.static('public')); // <-- This right here
-});
-*/
 
 // agregado por mi routes de cada tema----------------------------------------------
 var home= require('./routes/home');
