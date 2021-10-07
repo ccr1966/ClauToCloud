@@ -116,7 +116,7 @@ footer{
  .testimonio, .cita{
      font-weight:bold;
      font-style:italic;
-     font-size:1.3em;
+     font-size:1.0em;
      display:block;
  }
  .testimonio, .autor{
