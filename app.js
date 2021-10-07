@@ -55,6 +55,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*/ Express config
+var app = express().configure(function () {
+  this.use('/public', express.static('public')); // <-- This right here
+});
+*/
+
 // agregado por mi routes de cada tema----------------------------------------------
 var home= require('./routes/home');
 var education= require('./routes/education');
@@ -66,11 +72,11 @@ var login = require('./routes/admin/login');
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
 
-var descargar= require('./routes/descargar');
+
 
 app.use('/', routes);
 app.use('/home', home);
-app.use('/descargar', descargar);
+
 app.use('/career', career);
 app.use('/education', education);
 app.use('/formulario',  formulario);
@@ -85,6 +91,9 @@ app.use('/admin/comentarios',  comentarios);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+
+
 
 // error handler
 app.use(function(err, req, res, next) {
