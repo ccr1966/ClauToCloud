@@ -39,7 +39,7 @@ nav ul{
 }
 nav ul li{
     display:inline-block;
-    width:12.5%;
+    width:11.5%;
 }
 nav ul li a{
     color:white;
@@ -68,7 +68,7 @@ footer{
 
 .holder{
 
-   width: 1020px;
+   width: 1025px;
     margin: 0 auto;
 }
 
