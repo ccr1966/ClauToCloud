@@ -72,13 +72,13 @@ var comentarios = require('./routes/admin/comentarios');
 app.use('/', routes);
 app.use('/home', home);
 
-app.use('/career', career);
-app.use('/education', education);
-app.use('/formulario',  formulario);
-app.use('/look',  look); 
+app.use('/career', secured, career);
+app.use('/education',secured,  education);
+app.use('/formulario',secured,   formulario);
+app.use('/look',  secured, look); 
 
 app.use('/admin/login', login);
-app.use('/admin/comentarios',  comentarios);
+app.use('/admin/comentarios', secured, comentarios);
 
 // fin ----------------------------------------------------
 
