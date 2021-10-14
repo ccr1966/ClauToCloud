@@ -55,19 +55,7 @@ var comentarios = require('./routes/admin/comentarios');
 
 /* funcion de control de paginas para usuario logeado. Me dio error...*/
 
-secured = async(req,res,next) =>{
-  try{
-    console.log(req.session.id_usuario);
-    if(req.session.id_usuario){
-        next();
-    }
-    else{
-      res.redirect('login');
-    }
-  } catch(error){
-        console.log(error);
-  }
-}//secured 
+
 
 app.use('/', routes);
 app.use('/home', home);
@@ -81,6 +69,19 @@ app.use('/admin/login', login);
 app.use('/admin/comentarios', secured, comentarios);
 
 // fin ----------------------------------------------------
+secured = async(req,res,next) =>{
+  try{
+    console.log(req.session.id_usuario);
+    if(req.session.id_usuario){
+        next();
+    }
+    else{
+      res.redirect('login');
+    }
+  } catch(error){
+        console.log(error);
+  }
+}//secured 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
