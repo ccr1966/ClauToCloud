@@ -65,7 +65,7 @@ secured = async(req,res,next) =>{
         next();
     }
     else{
-      res.redirect('login');
+      res.redirect('/admin/login');
     }
   } catch(error){
         console.log(error);
