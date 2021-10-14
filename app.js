@@ -33,21 +33,7 @@ app.use(session({
   saveUnInitialized:true
 }));
 
-/* funcion de control de paginas para usuario logeado. Me dio error...*/
 
-secured = async(req,res,next) =>{
-  try{
-    console.log(req.session.id_usuario);
-    if(req.session.id_usuario){
-        next();
-    }
-    else{
-      res.redirect('admin/login');
-    }
-  } catch(error){
-        console.log(error);
-  }
-}//secured 
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -67,7 +53,21 @@ var login = require('./routes/admin/login');
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
 
+/* funcion de control de paginas para usuario logeado. Me dio error...*/
 
+secured = async(req,res,next) =>{
+  try{
+    console.log(req.session.id_usuario);
+    if(req.session.id_usuario){
+        next();
+    }
+    else{
+      res.redirect('login');
+    }
+  } catch(error){
+        console.log(error);
+  }
+}//secured 
 
 app.use('/', routes);
 app.use('/home', home);
