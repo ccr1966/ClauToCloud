@@ -53,22 +53,11 @@ var login = require('./routes/admin/login');
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
 
-/* funcion de control de paginas para usuario logeado. Me dio error...*/
-
-
 
 app.use('/', routes);
 app.use('/home', home);
-
-app.use('/career', secured, career);
-app.use('/education',secured,  education);
-app.use('/formulario',secured,   formulario);
-app.use('/look',  secured, look); 
-
 app.use('/admin/login', login);
-app.use('/admin/comentarios', secured, comentarios);
-
-// fin ----------------------------------------------------
+/* funcion de control de paginas para usuario logeado. Me dio error...*/
 secured = async(req,res,next) =>{
   try{
     console.log(req.session.id_usuario);
@@ -82,6 +71,18 @@ secured = async(req,res,next) =>{
         console.log(error);
   }
 }//secured 
+// fin ----------------------------------------------------
+
+
+app.use('/career', secured, career);
+app.use('/education',secured,  education);
+app.use('/formulario',secured,   formulario);
+app.use('/look',  secured, look); 
+
+
+app.use('/admin/comentarios', secured, comentarios);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
