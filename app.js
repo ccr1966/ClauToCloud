@@ -38,7 +38,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 // agregado por mi routes de cada tema----------------------------------------------
 var home= require('./routes/home');
 var education= require('./routes/education');
@@ -49,7 +48,6 @@ var look = require('./routes/look');
 var login = require('./routes/admin/login'); 
 var routes = require('./routes/admin/login');
 var comentarios = require('./routes/admin/comentarios');
-
 
 app.use('/', routes);
 app.use('/home', home);
@@ -82,7 +80,6 @@ app.use('/admin/comentarios', secured, comentarios);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
 
 // error handler
 app.use(function(err, req, res, next) {
