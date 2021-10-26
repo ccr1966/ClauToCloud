@@ -23,7 +23,6 @@ app.engine('handlebars', handlebars({
 ));
 
 // view engine setup
-//app.engine('hbs', hbs({helpers: require("./public/js/helpers.js").helpers,extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -32,8 +31,6 @@ app.use(session({
   resave:true,
   saveUnInitialized:true
 }));
-
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -57,7 +54,8 @@ var comentarios = require('./routes/admin/comentarios');
 app.use('/', routes);
 app.use('/home', home);
 app.use('/admin/login', login);
-/* funcion de control de paginas para usuario logeado. Me dio error...*/
+
+/* funcion de control de paginas para usuario logeado..*/
 secured = async(req,res,next) =>{
   try{
     console.log(req.session.id_usuario);
@@ -73,16 +71,12 @@ secured = async(req,res,next) =>{
 }//secured 
 // fin ----------------------------------------------------
 
-
 app.use('/career', secured, career);
 app.use('/education',secured,  education);
 app.use('/formulario',secured,   formulario);
 app.use('/look',  secured, look); 
 
-
 app.use('/admin/comentarios', secured, comentarios);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -90,13 +84,8 @@ app.use(function(req, res, next) {
 });
 
 
-
-
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  //res.locals.message = err.message;
-  //es.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
