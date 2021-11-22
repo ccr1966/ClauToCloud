@@ -15,8 +15,3 @@ CREATE TABLE IF NOT EXISTS `items` (
   `desc_item` varchar(255) NOT NULL,
   PRIMARY KEY (`id_item`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
-
-INSERT IGNORE INTO `usuarios` 
-(`usuario`, `clave`, `nombre`, `apellido`) 
-VALUES 
-('guest', '1234', 'Guest', 'Welcome')
