@@ -20,7 +20,7 @@ router.get('/salir', function(req, res, next) {
   req.session = null; 
   // res.redirect('/');
   res.render('admin/login',
-     {layout: 'admin/admin/layout'
+     {layout: 'admin/layout'
     });
 });
 
