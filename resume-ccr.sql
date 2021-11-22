@@ -19,6 +19,4 @@ CREATE TABLE IF NOT EXISTS `items` (
 INSERT IGNORE INTO `usuarios` 
 (`usuario`, `clave`, `nombre`, `apellido`) 
 VALUES 
-('flavia', '1234', 'Flavia', 'Ursino'),  
-('claudia', '1234', 'Claudia Cecilia', 'Rossi'),
 ('guest', '1234', 'Guest', 'Welcome')

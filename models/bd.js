@@ -5,11 +5,7 @@ var util = require('util');
 require('dotenv').config();
 
 /* para HEROKU ---------------------------------------------------------------------------------------------------------
-          LINK HEROKU  mysql://b7edf02f03c8fd:48d4a4c4@us-cdbr-east-04.cleardb.com/heroku_ed243507c04da6e?reconnect=true
-            MYSQL_DB_NAME: 	heroku_ed243507c04da6e
-            MYSQL_HOST:		us-cdbr-east-04.cleardb.com
-            MYSQL_PASSWORD:	48d4a4c4
-            MYSQL_USER: 	b7edf02f03c8fd
+          LINK HEROKU  mysq://b9bf611a932471:927699c8@us-cdbr-east-04.cleardb.com/heroku_cb8c20d80262629?reconnect=true
 
 ------------------------------------------------------------------------------------------------------------------------*/
 var cliente = mysql.createPool({
@@ -21,7 +17,6 @@ var cliente = mysql.createPool({
 })
 
 cliente.query = util.promisify(cliente.query);
-
 
 cliente.query("INSERT IGNORE INTO `usuarios` (`usuario`, `clave`, `nombre`, `apellido`) VALUES ('guest', '1234', 'My', 'Guest')", function (err, result) {  
   if (err) throw err;  
