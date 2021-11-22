@@ -5,8 +5,7 @@ var util = require('util');
 require('dotenv').config();
 
 /* para HEROKU ---------------------------------------------------------------------------------------------------------
-          LINK HEROKU  mysq://b9bf611a932471:927699c8@us-cdbr-east-04.cleardb.com/heroku_cb8c20d80262629?reconnect=true
-
+          LINK HEROKU  mysql://ba67b75b3a76c0:735e4798@us-cdbr-east-04.cleardb.com/heroku_f6f8eaaaa6b8fd3?reconnect=true
 ------------------------------------------------------------------------------------------------------------------------*/
 var cliente = mysql.createPool({
   connectionLimit: 10,
