@@ -27,6 +27,16 @@ header h2{
     bottom:10px;
     text-align: right;
 }
+header h9{
+    color:white;
+    font-size: 2.9em;
+    font-style:bold;
+    font-weight: 7;
+    display: inline-block;
+    position: relative;
+    bottom:10px;
+    text-align: right;
+}
 nav{
     background-color:#6da9ed;
     margin-bottom: 1em;
@@ -387,9 +397,4 @@ width:70%;
     
 #boton-bonito:hover {
     background-color:royalblue;
-}
-h9{
-    color:#2e64a1;
-    font-weight:300;
-    margin: 0 0 lem;
 }
