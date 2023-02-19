@@ -1,5 +1,0 @@
-CLEARDB_DATABASE_URL: 
-DB name: 	basefinalwm 
-Host: 		localhost 
-Password: 	Esme1966Pasquini 
-User: 		root 

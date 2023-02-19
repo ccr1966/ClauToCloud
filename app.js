@@ -2,11 +2,11 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+
 
 var app = express();
 
-const session = require('cookie-session');
+
 
 var handlebars = require('express-handlebars');    
 
@@ -26,16 +26,10 @@ app.engine('handlebars', handlebars({
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.use(session({
-  secret:'esmeralda2407',
-  resave:true,
-  saveUnInitialized:true
-}));
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // agregado por mi routes de cada tema----------------------------------------------
@@ -45,36 +39,17 @@ var career= require('./routes/career');
 var formulario = require('./routes/formulario');
 var look = require('./routes/look');
 
-var login = require('./routes/admin/login'); 
-var routes = require('./routes/admin/login');
-var comentarios = require('./routes/admin/comentarios');
 
 app.use('/', routes);
 app.use('/home', home);
-app.use('/admin/login', login);
 
-/* funcion de control de paginas para usuario logeado..*/
-secured = async(req,res,next) =>{
-  try{
-    console.log(req.session.id_usuario);
-    if(req.session.id_usuario){
-        next();
-    }
-    else{
-      res.redirect('/admin/login');
-    }
-  } catch(error){
-        console.log(error);
-  }
-}//secured 
-// fin ----------------------------------------------------
+
 
 app.use('/career', secured, career);
 app.use('/education',secured,  education);
 app.use('/formulario',secured,   formulario);
 app.use('/look',  secured, look); 
 
-app.use('/admin/comentarios', secured, comentarios);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
