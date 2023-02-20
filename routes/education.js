@@ -7,11 +7,11 @@ router.use(express.urlencoded({ extended: false }));
 
 // GET users listing.
 router.get('/', function(req, res, next) {
-
+/*
   console.log('en EDUCATION.js session id usuario= ' + req.session.id_usuario );
   console.log('en EDUCATION.js session usuario= ' + req.session.usuario );
-
-res.render('education',{usuario:req.session.usuario,id_usuario:req.session.id_usuario});
+*/
+res.render('education');
 });
 
 module.exports = router;

@@ -7,7 +7,7 @@ router.use(express.urlencoded({ extended: false }));
 
 //GET users listing.
 router.get('/', function(req, res, next) {
-  res.render('formulario',{usuario:req.session.usuario,id_usuario:req.session.id_usuario});
+  res.render('formulario');
 });
 
 var transporter = nodemailer.createTransport({
@@ -46,7 +46,7 @@ router.post('/enviar',  function(req, res, next) {
         else
         {
           console.log("Mensaje enviado");
-          res.render('MensajesAlUsuario',{mensaje:'Email recieved succesfully. I will contact you soon. Thank you!',pagina:'/home', usuario:req.session.usuario,id_usuario:req.session.id_usuario});
+          res.render('MensajesAlUsuario',{mensaje:'Email recieved succesfully. I will contact you soon. Thank you!',pagina:'/home');
         }
         }); // transporter ----------------
      
