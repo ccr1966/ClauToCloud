@@ -46,7 +46,7 @@ router.post('/enviar',  function(req, res, next) {
         else
         {
           console.log("Mensaje enviado");
-          res.render('MensajesAlUsuario',{mensaje:'Email recieved succesfully. I will contact you soon. Thank you!',pagina:'/home');
+          res.render('MensajesAlUsuario',{mensaje:'Email recieved succesfully. I will contact you soon. Thank you!',pagina:'/home'});
         }
         }); // transporter ----------------
      
