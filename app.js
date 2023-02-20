@@ -3,10 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 
-
 var app = express();
-
-
 
 var handlebars = require('express-handlebars');    
 
@@ -25,7 +22,7 @@ app.engine('handlebars', handlebars({
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
+var routes = require('./routes');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,16 +36,22 @@ var career= require('./routes/career');
 var formulario = require('./routes/formulario');
 var look = require('./routes/look');
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
+
+// routes de cada tema----------------------------------------------
+var home= require('./routes/home');
+var routes = require('./routes/home');
 
 app.use('/', routes);
 app.use('/home', home);
 
-
-
-app.use('/career', secured, career);
-app.use('/education',secured,  education);
-app.use('/formulario',secured,   formulario);
-app.use('/look',  secured, look); 
+app.use('/career', career);
+app.use('/education',  education);
+app.use('/formulario',   formulario);
+app.use('/look',   look); 
 
 
 // catch 404 and forward to error handler
